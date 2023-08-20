@@ -68,7 +68,7 @@ class Mlapp extends Component {
 
   updateState = async (options) => await this.setState({...this.state, ...options}) 
 
-  async checkOnlineStatusAndLoadApp() {
+async checkOnlineStatusAndLoadApp() {
     let internetState = navigator.onLine;
 
     const updateOnlineStatus = async () => {
@@ -78,9 +78,10 @@ class Mlapp extends Component {
       await this.updateState({ modelLoading : 'Loading ...' });
 
       const loadingContRef = this.loadingContainer.current;
-      loadingContRef.innerHTML = '';
-      loadingContRef.className = 'loadingContainer';
-
+      if (loadingContRef) {
+        loadingContRef.innerHTML = '';
+        loadingContRef.className = 'loadingContainer';
+      }
       // if (internetState) { 
         this.loadApp();
       // }
