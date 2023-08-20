@@ -2,9 +2,9 @@
   "name": "tfclassifier",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://nileshsp.github.io/reactTfClassifier",
+  "homepage": "https://Ayyodeji.github.io/Project-X",
   "repository": {
-    "url": "https://github.com/NileshSP/reactTfClassifier"
+    "url": "https://github.com/Ayyodeji/Project-X"
   },
   "dependencies": {
     "@tensorflow-models/knn-classifier": "^1.0.0",
