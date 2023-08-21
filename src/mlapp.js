@@ -68,7 +68,7 @@ class Mlapp extends Component {
 
   updateState = async (options) => await this.setState({...this.state, ...options}) 
 
-async checkOnlineStatusAndLoadApp() {
+  async checkOnlineStatusAndLoadApp() {
     let internetState = navigator.onLine;
 
     const updateOnlineStatus = async () => {
@@ -78,17 +78,16 @@ async checkOnlineStatusAndLoadApp() {
       await this.updateState({ modelLoading : 'Loading ...' });
 
       const loadingContRef = this.loadingContainer.current;
-      if (loadingContRef) {
-        loadingContRef.innerHTML = '';
-        loadingContRef.className = 'loadingContainer';
-      }
-      // if (internetState) { 
+      loadingContRef.innerHTML = '';
+      loadingContRef.className = 'loadingContainer';
+
+      if (internetState) { 
         this.loadApp();
-      // }
-      // else { 
-      //   loadingContRef.className = 'loadingMessage';
-      //   loadingContRef.innerHTML = 'Online availability is required to load ML model initially from remote server for this app to function!!';  
-      // }
+      }
+      else { 
+        loadingContRef.className = 'loadingMessage';
+        loadingContRef.innerHTML = 'Online availability is required to load ML model initially from remote server for this app to function!!';  
+      }
     }
 
     window.addEventListener('online',  updateOnlineStatus);
